@@ -1,0 +1,52 @@
+div {
+    text-align: center;
+    font-size: 25px;
+}
+
+#title {
+    font-size: 100px;
+    font-family: "Brush Script MT", "Lucida Handwriting", Cursive;
+}
+
+#words-table, .words-line {
+    margin-left: auto;
+    margin-right: auto;
+    /*border-collapse: collapse;*/
+}
+
+.words-line {
+    width: 55px;
+    height: 55px;
+    border: 2px solid darkgrey;
+    border-radius: 10px;
+
+}
+
+table {
+    font-size: 40px;
+    text-align: center;
+}
+
+button{
+    text-align: center;
+    /*border: 1px solid darkgrey;*/
+    border-radius: 5px;
+    font-size: 30px;
+}
+
+.letter {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+}
+
+#keyboard {
+    line-height: 2.2;
+}
+
+#delete, #enter {
+    width: 130px;
+    height: 50px;
+    font-size: 30px;
+    font-family: Copperplate, Fantasy;
+}

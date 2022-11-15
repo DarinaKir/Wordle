@@ -8,13 +8,13 @@ div {
     font-family: "Brush Script MT", "Lucida Handwriting", Cursive;
 }
 
-#words-table, .words-line {
+#words-board, .square, .row {
     margin-left: auto;
     margin-right: auto;
     /*border-collapse: collapse;*/
 }
 
-.words-line {
+.square, .row {
     width: 55px;
     height: 55px;
     border: 2px solid darkgrey;
@@ -49,6 +49,21 @@ button{
     height: 50px;
     font-size: 30px;
     font-family: Copperplate, Fantasy;
+}
+
+.wrong {
+    background-color: darkgray;
+    color: white;
+}
+
+.wrongPlace {
+    background-color: gold;
+    color: white;
+}
+
+.right {
+    background-color: green;
+    color: white;
 }
 
 /*//Tehila*/

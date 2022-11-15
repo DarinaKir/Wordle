@@ -9,53 +9,53 @@
 <body>
 <div id="title">Wordle</div>
 
-<table id="words-table">
-    <tr class="words-line">
-        <td class="words-line" id="cell15"></td>
-        <td class="words-line" id="cell14"></td>
-        <td class="words-line" id="cell13"></td>
-        <td class="words-line" id="cell12"></td>
-        <td class="words-line" id="cell11"></td>
+<table id="words-board">
+    <tr class="row">
+        <td class="square" id="5"></td>
+        <td class="square" id="4"></td>
+        <td class="square" id="3"></td>
+        <td class="square" id="2"></td>
+        <td class="square" id="1"></td>
     </tr>
 
-    <tr class="words-line">
-        <td class="words-line" id="cell25"></td>
-        <td class="words-line" id="cell24"></td>
-        <td class="words-line" id="cell23"></td>
-        <td class="words-line" id="cell22"></td>
-        <td class="words-line" id="cell21"></td>
+    <tr class="row">
+        <td class="square" id="10"></td>
+        <td class="square" id="9"></td>
+        <td class="square" id="8"></td>
+        <td class="square" id="7"></td>
+        <td class="square" id="6"></td>
     </tr>
 
-    <tr class="words-line">
-        <td class="words-line" id="cell35"></td>
-        <td class="words-line" id="cell34"></td>
-        <td class="words-line" id="cell33"></td>
-        <td class="words-line" id="cell32"></td>
-        <td class="words-line" id="cell31"></td>
+    <tr class="row">
+        <td class="square" id="15"></td>
+        <td class="square" id="14"></td>
+        <td class="square" id="13"></td>
+        <td class="square" id="12"></td>
+        <td class="square" id="11"></td>
     </tr>
 
-    <tr class="words-line">
-        <td class="words-line" id="cell45"></td>
-        <td class="words-line" id="cell44"></td>
-        <td class="words-line" id="cell43"></td>
-        <td class="words-line" id="cell42"></td>
-        <td class="words-line" id="cell41"></td>
+    <tr class="row">
+        <td class="square" id="20"></td>
+        <td class="square" id="19"></td>
+        <td class="square" id="18"></td>
+        <td class="square" id="17"></td>
+        <td class="square" id="16"></td>
     </tr>
 
-    <tr class="words-line">
-        <td class="words-line" id="cell55"></td>
-        <td class="words-line" id="cell54"></td>
-        <td class="words-line" id="cell53"></td>
-        <td class="words-line" id="cell52"></td>
-        <td class="words-line" id="cell51"></td>
+    <tr class="row">
+        <td class="square" id="25"></td>
+        <td class="square" id="24"></td>
+        <td class="square" id="23"></td>
+        <td class="square" id="22"></td>
+        <td class="square" id="21"></td>
     </tr>
 
-    <tr class="words-line">
-        <td class="words-line" id="cell65"></td>
-        <td class="words-line" id="cell64"></td>
-        <td class="words-line" id="cell63"></td>
-        <td class="words-line" id="cell62"></td>
-        <td class="words-line" id="cell61"></td>
+    <tr class="row">
+        <td class="square" id="30"></td>
+        <td class="square" id="29"></td>
+        <td class="square" id="28"></td>
+        <td class="square" id="27"></td>
+        <td class="square" id="26"></td>
     </tr>
 </table>
 </br>
@@ -80,7 +80,7 @@
     <button type="button" class="letter" onclick="addALetter(this.innerText)">ך</button>
     <button type="button" class="letter" onclick="addALetter(this.innerText)">ף</button>
     </br>
-    <button type="button" id="enter">ENTER</button>
+    <button type="button" id="enter" onclick="validInput()">ENTER</button>
     <button type="button" class="letter" onclick="addALetter(this.innerText)">ז</button>
     <button type="button" class="letter" onclick="addALetter(this.innerText)">ס</button>
     <button type="button" class="letter" onclick="addALetter(this.innerText)">ב</button>
@@ -90,7 +90,7 @@
     <button type="button" class="letter" onclick="addALetter(this.innerText)">צ</button>
     <button type="button" class="letter" onclick="addALetter(this.innerText)">ת</button>
     <button type="button" class="letter" onclick="addALetter(this.innerText)">ץ</button>
-    <button type="button" id="delete">DELETE</button>
+    <button type="button" id="delete" onclick="deleteLetter()">DELETE</button>
 </div>
 </body>
 </html>

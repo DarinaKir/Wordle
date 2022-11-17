@@ -6,6 +6,14 @@ div {
 #title {
     font-size: 100px;
     font-family: "Brush Script MT", "Lucida Handwriting", Cursive;
+    color: cadetblue;
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+@keyframes example {
+    from {color: white;}
+    to {color: cadetblue;}
 }
 
 #words-board {
@@ -58,9 +66,26 @@ button{
 .wrongPlace {
     background-color: gold;
     color: white;
+
+    animation-name: rotate;
+    animation-duration: 0.7s;
+    animation-direction: reverse;
 }
 
 .right {
     background-color: green;
     color: white;
+
+    animation-name: rotate;
+    animation-duration: 0.7s;
+    animation-direction: reverse;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(150deg);
+    }
 }

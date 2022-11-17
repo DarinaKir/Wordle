@@ -1,57 +1,63 @@
-const WORDS = ["תהילה", "דרינה", "אבטיח", "ישראל", "חופשה", "בדידה", "הייטק", "פנינה", "פרגית", "מרוקו", "גלידה", "מושלם"];
+const WORDS = ["תהילה", "דרינה", "אבטיח", "ישראל", "חופשה", "בדידה", "הייטק", "פנינה", "פרגית", "מרוקו",
+                "גלידה", "מושלם", "שגיאה", "נסיכה", "כימיה", "חנוכה", "ציפור", "משוגע", "אריות", "מכללה"];
 let currentSquareId = 0;
+let wordIndex = 0;
+let isGameOver = false;
 
 function isCellPainted (id){
     let cellElement = document.getElementById(id);
-    return (cellElement.classList[cellElement.classList.length-1] != null)
+    return (cellElement.classList[cellElement.classList.length-1] != "square")
 }
 
 function addALetter(letter){
-    if ((currentSquareId == 0) || (currentSquareId % 5 != 0) || isCellPainted(currentSquareId)){
+
+    if (((currentSquareId == 0) || (currentSquareId % 5 != 0) || isCellPainted(currentSquareId)) && !isGameOver){
         currentSquareId ++;
         document.getElementById(currentSquareId+"").innerText = letter;
-        // document.getElementById(currentSquareId+"").classList.add("wrong");
     }
 }
 
 function deleteLetter (){
-    if ((currentSquareId != 0) && !isCellPainted(currentSquareId)){
+    if (((currentSquareId != 0) && !isCellPainted(currentSquareId)) && !isGameOver){
         document.getElementById(currentSquareId+"").innerText = "";
         currentSquareId --;
     }
 }
 
 function validInput (){
-    if ((currentSquareId != 0) && (currentSquareId % 5 == 0) && !isCellPainted(currentSquareId)){
+    if (((currentSquareId != 0) && (currentSquareId % 5 == 0) && !isCellPainted(currentSquareId)) && !isGameOver){
+        let counter = 0;
         for (let i = 0; i < 5; i++) {
             let currentSquare = document.getElementById((currentSquareId-i) + "");
-            if (WORDS[0].charAt(4-i) == currentSquare.innerText){
-                currentSquare.classList.add("right");
-            }else if (WORDS[0].includes(currentSquare.innerText)){
-                currentSquare.classList.add("wrongPlace");
-            }else currentSquare.classList.add("wrong");
+            let currentButton =   document.getElementById(currentSquare.innerText);
+            let result = "wrong";
+            if (WORDS[wordIndex].charAt(4-i) == currentSquare.innerText){
+                result = "right";
+                counter++;
+            }else if (WORDS[wordIndex].includes(currentSquare.innerText)){
+                result = "wrongPlace";
+            }
+            currentSquare.classList.add(result);
+            if ((result == "wrongPlace" && !currentButton.classList.contains("right")) || (result != "wrongPlace")){
+                currentButton.classList.add(result);
+            }
+        }
+        if (counter == 5){
+            isGameOver = true;
+            alertMessage("YOU WIN 👑 !")
+        }else if (currentSquareId == 30){
+            alertMessage("YOU LOSE ... 😢 THE WORD WAS --> "+ WORDS[wordIndex])
         }
     }
 }
 
-// function isLetterExist (letter){
-//     for (let i = 0; i < WORDS[0].length; i++) {
-//         if (WORDS[0].charAt(i) === letter){
-//             return true;
-//         }
-//     }
-//     return false;
-// }
+function alertMessage (message){
+    setTimeout(() => {
+        alert(message);
+    },1000)
+}
 
 function determiningId (){
-    let cells = document.getElementsByTagName("td");
-    let counter = 1;
-    for (let i = 0; i < 6; i++) {
-        for (let j = 5; j > 0; j--) {
-            cells[(j+(i*5))-1].id = counter;
-            counter++;
-        }
-    }
     let buttons = document.getElementsByTagName("button");
     for (let i = 0; i < buttons.length; i++) {
         if (buttons[i].innerText.length == 1){
@@ -59,4 +65,8 @@ function determiningId (){
             buttons[i].classList.add("letter");
         }
     }
+}
+
+function wordIndexLottery () {
+    wordIndex = Math.ceil(Math.random() * 20) - 1;
 }
